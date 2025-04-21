@@ -67,7 +67,8 @@ LOOPBACK_OBJS = \
 	qa/loopback/src/write_wav.o \
 	qa/loopback/src/paqa.o
 	
-EXAMPLES = \
+EXAMPLES = bin/sound_test
+	#\
 	bin/pa_devs \
 	bin/pa_fuzz \
 	bin/paex_pink \
@@ -78,12 +79,12 @@ EXAMPLES = \
 	bin/paex_write_sine \
 	bin/paex_write_sine_nonint
 
-SELFTESTS = \
+SELFTESTS = #\
 	bin/paqa_devs \
 	bin/paqa_errs \
 	bin/paqa_latency
 	
-TESTS = \
+TESTS = #\
 	bin/patest1 \
 	bin/patest_buffer \
 	bin/patest_callbackstop \

@@ -4,3 +4,6 @@ Use MSYS2 and MinGW to build the project.
 make
 
 Build artifacts would be placed in ./bin/
+
+Delete build artifacts: rm ./bin/*
+
