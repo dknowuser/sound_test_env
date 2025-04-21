@@ -1,3 +1,5 @@
+Use MSYS2 and MinGW to build the project.
+
 ./configure
 make
 
