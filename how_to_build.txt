@@ -1,0 +1,4 @@
+./configure
+make
+
+Build artifacts would be placed in ./bin/
