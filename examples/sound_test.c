@@ -167,8 +167,8 @@ static int playCallback( const void *inputBuffer, void *outputBuffer,
         /* final buffer... */
         for( i=0; i<framesLeft; i++ )
         {
-            *wptr++ = *rptr++;  /* left */
-            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
+            *wptr++ = *rptr++ / 14.;  /* left */
+            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++ / 14.;  /* right */
         }
         for( ; i<framesPerBuffer; i++ )
         {
@@ -182,8 +182,8 @@ static int playCallback( const void *inputBuffer, void *outputBuffer,
     {
         for( i=0; i<framesPerBuffer; i++ )
         {
-            *wptr++ = *rptr++;  /* left */
-            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++;  /* right */
+            *wptr++ = *rptr++ / 14.;  /* left */
+            if( NUM_CHANNELS == 2 ) *wptr++ = *rptr++ / 14.;  /* right */
         }
         data->frameIndex += framesPerBuffer;
         finished = paContinue;
