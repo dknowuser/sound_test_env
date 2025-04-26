@@ -7,3 +7,50 @@ Build artifacts would be placed in ./bin/
 
 Delete build artifacts: rm ./bin/*
 
+---- Full setup process for Win ----
+> Go to Env Vars and set %HOME% to C:\msys64
+reboot
+> Install MSYS2
+> mkdir -p /home/$(whoami)
+> pacman -Suy 
+> open MSYS_UCRT64.exe again
+> pacman -Suy 
+C:\msys64\home\username - here all projects will be cloned
+> pacman -S git
+> ssh-keygen -t ed25519 -C "rom.ted@mail.ru"
+enter enter enter
+now using this: https://github.com/OULibraries/msys2-setup/blob/master/02-ssh.md
+> touch /home/rorka/.ssh/config
+> nano  /home/rorka/.ssh/config
+> paste this & rename user:
+Host *
+  ForwardAgent yes
+  User rorka
+  IdentityFile /home/rorka/.ssh/id_ed25519
+
+> curl -OL https://github.com/OULibraries/msys2-setup/raw/master/ssh-agent.sh && \
+chmod +x ssh-agent.sh && \
+mv ssh-agent.sh /etc/profile.d/
+
+> nano /home/rorka/.ssh/config
+add this:
+Host github.com
+    User git
+
+> cat /home/rorka/.ssh/id_ed25519.pub
+> copy that and paste in GithubAccount->Settings->SSH&GPG keys->Add new SSH key
+----cloning the project ------
+> go to repo
+> clone->ssh->copy
+> in MSYS: git clone paste
+> cd sound_test_env/
+> git branch
+> git fetch
+> git checkout main
+> pacman -S mingw-w64-ucrt-x86_64-gcc
+> ./configure
+> pacman -S make
+> make
+to run program:
+> ./bin/sound_test.exe
+src is in examples/sound_test.c
